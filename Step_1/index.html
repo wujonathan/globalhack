@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>CP</title> 
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" type="text/javascript"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASLJouK8aCAA0WsNDIExZfvTVmQMMjpeA" type="text/javascript"></script>
+</head> 
+<body>
+
+<div id="map" style="width: 1200px; height: 500px;"></div>
+<div class="userLoginDetails">
+  <div>
+    <form id="userlogin">
+      <br> Update availible resources here: <br>
+      Beds <input type="number" name="beds" id="beds_update">  <br>
+      Food <input type="number" name="food" id="food_update">  <br>
+      <input id="update" type="button" name="submit" value="Update"/>
+    </form>
+    <div id="updateMsg"></div> 
+  </div>
+</div>
+
+<script type="text/javascript" src="cp.js"></script>
+</body>
+</html>

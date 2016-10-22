@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html> 
+<head> 
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
+  <title>CP</title> 
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head> 
+<body>
+
+  <div class="logins">
+    <button class="btns" id="login" data-tog="0">Log In</button>
+  </div>
+  <div class="logouts">
+    <div id="loggedUser" data-tog="0"></div>
+    <button class="btns" id="logout">Log Out</button>
+  </div>
+  <div class="userLoginDetails">
+    <div>
+      <form id="userlogin">
+        <br> Please Input the details for login: <br>
+        Username <input type="text"  name="username" id="username">  <br>
+        Password <input type="password"  name="password" id="password">  <br>
+        <input id="submitLogin" type="button" name="submit" value="Login"/>
+      </form>
+      <div id="loginUserMsg"></div> 
+    </div>
+  </div>
+
+  <div class="steps">
+    <button id="step1" class="float-left">Locate</button>
+    <script type="text/javascript">
+        document.getElementById("step1").onclick = function () {
+            location.href = "/~wujonathan/Step_1/";
+        };
+    </script>
+    <button id="step2" class="float-middle">Assess</button>
+    <script type="text/javascript">
+        document.getElementById("step2").onclick = function () {
+            location.href = "/~wujonathan/Step_2/";
+        };
+    </script>
+    <button id="step3" class="float-right">Learn</button>
+    <script type="text/javascript">
+        document.getElementById("step3").onclick = function () {
+            location.href = "/~wujonathan/Step_3/";
+        };
+    </script>
+ </div>
+ <script type="text/javascript" src="cp.js"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+.logins{
+    max-width: 600px;
+    position: relative;
+    left: 15px;
+    margin: 5px
+    float: right;
+    display: inherit;
+}
+
+.logouts{
+    max-width: 600px;
+    position: relative;
+    left: 15px;
+    margin: 5px
+    float: right;
+    display: none;
+}
+
+.userCreateDetails {
+    width: 360px;
+    height: 200px;
+    background-color: #FFFFFF;
+    display: none;
+}
+
+.viewTags{
+    position: relative;
+    display: none;
+}
+
+#viewRandom{
+    position: relative;
+}
+
+.userLoginDetails {
+    width: 360px;
+    height: 200px;
+    background-color: #FFFFFF;
+    display: none;
+}
+
+.addPicture{
+    position: relative;
+    display: none;
+}
+
+.description{
+    font-size: 200%;
+}
+
+.time{
+    font-size: 50%;
+}
