@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", homeload);
 
 var usrname;
-var usrId;
+var usrId="";
 var token;
 var markers = [];
 var content = [];
@@ -41,11 +41,9 @@ function homeload(){
 			infowindow.open(map, marker);
 		}
 	}});
-//Updates the center for future loading
-google.maps.event.addListener(map, "center_changed", function() {
-	centerLat=map.getCenter().lat();
-	centerLng=map.getCenter().lng();
-});
+	if (usrId != ""){
+
+	}
 }
 
 //Helper function used for dealing with the logins
@@ -73,15 +71,9 @@ $("#update").click( function(){
 	$.ajax({type:'POST', url: 'update_avail.php', data: pdata, dataType: 'json', success: function(response) {
 		if(response.success){ 
 			token=response.token;
-			$("#loggedUser").attr("data-tog","1");
-			$(".userLoginDetails").hide();
-			$(".logins").hide();
-			$(".logouts").show();
-			$("#loginUserMsg").empty();
-			$("#userlogin")[0].reset();
-			$("#loggedUser").append('<div>Hello '+usrname+'!</div>');
-			usrId=response.usrId;
-			toggleState($("#login"));
+			
+			$("#updateMsg").empty();
+			$("#updateMsg").append('<div class="failText">Failed</div>');
 			load();
 		}
 		else{
@@ -90,63 +82,4 @@ $("#update").click( function(){
 		}
 	}
 });
-});
-
-//Displays the login form
-$("#login").click( function(){
-	if ($(this).attr("data-tog") == "0"){
-		$(".userLoginDetails").show();
-	}
-	else{
-		$(".userLoginDetails").hide();
-	}
-	toggleState(this);
-});
-
-//Submits the login form and reloads the page
-$("#submitLogin").click( function(){
-	usrname = $("#username").val();
-	var usrpass = $("#password").val();
-	var pdata = {
-		username : usrname,
-		password : usrpass
-	};
-	if (usrname === "" || usrpass === ""){
-		$("#loginUserMsg").empty();
-		$("#loginUserMsg").append('<div class="failText">Invalid Username or Password</div>');
-		return;
-	}
-	$.ajax({type:'POST', url: 'login.php', data: pdata, dataType: 'json', success: function(response) {
-		if(response.success){ 
-			token=response.token;
-			$("#loggedUser").attr("data-tog","1");
-			$(".userLoginDetails").hide();
-			$(".logins").hide();
-			$(".logouts").show();
-			$("#loginUserMsg").empty();
-			$("#userlogin")[0].reset();
-			$("#loggedUser").append('<div>Hello '+usrname+'!</div>');
-			usrId=response.usrId;
-			toggleState($("#login"));
-			load();
-		}
-		else{
-			$("#loginUserMsg").empty();
-			$("#loginUserMsg").append('<div class="failText">'+response.message+'</div>');
-		}
-	}
-});
-});
-
-//Reset elements and load the default
-$("#logout").click( function(){
-	$.ajax({type:'POST', url: 'logout.php', dataType: 'json', success: function(response) {
-		if(response.success){
-			$(".logouts").hide();
-			$(".logins").show();
-			$("#loggedUser").empty();
-			$("#loggedUser").attr("data-tog","0");
-			homeload();
-		}}
-	});
 });

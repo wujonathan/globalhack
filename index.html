@@ -2,28 +2,21 @@
 <html> 
 <head> 
   <meta http-equiv="content-type" content="text/html; charset=UTF-8" /> 
-  <title>CP</title> 
+  <title>HomeBase</title> 
   <link rel="stylesheet" type="text/css" href="style.css">
 </head> 
 <body>
 
-  <div class="logins">
-    <button class="btns" id="login" data-tog="0">Log In</button>
-  </div>
+  <button id="login" class="logins">Shelter Login</button>
+    <script type="text/javascript">
+        document.getElementById("longin").onclick = function () {
+            location.href = "/~wujonathan/loginPage.html";
+        };
+    </script>
+
   <div class="logouts">
     <div id="loggedUser" data-tog="0"></div>
-    <button class="btns" id="logout">Log Out</button>
-  </div>
-  <div class="userLoginDetails">
-    <div>
-      <form id="userlogin">
-        <br> Please Input the details for login: <br>
-        Username <input type="text"  name="username" id="username">  <br>
-        Password <input type="password"  name="password" id="password">  <br>
-        <input id="submitLogin" type="button" name="submit" value="Login"/>
-      </form>
-      <div id="loginUserMsg"></div> 
-    </div>
+    <button class="btns" id="logout">Logout</button>
   </div>
 
   <div class="steps">
@@ -46,6 +39,6 @@
         };
     </script>
  </div>
- <script type="text/javascript" src="cp.js"></script>
+ <script type="text/javascript" src="mainpage.js"></script>
 </body>
 </html>
